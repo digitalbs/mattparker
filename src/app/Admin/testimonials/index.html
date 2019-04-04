@@ -1,0 +1,107 @@
+<header layout-padding layout-align="space-between" layout="row" flex="100">
+    <h1>Testimonials<h1>
+
+    <md-button class="md-accent md-raised md-button md-ink-ripple" ng-click="createTestimonial()">
+        <i class="fa fa-plus"></i> Add Testimonial
+    </md-button>
+</header>
+
+
+<section ng-repeat="testimonial in testimonials" layout-padding>
+    <header style="overflow: hidden" layout="row" layout-align="space-between">
+        <h3>{{testimonial.author}}</h3>
+        <md-content>
+            <md-button aria-label="Edit" class="md-fab md-raised md-mini" ng-click="editTestimonial(testimonial)">
+                <i class="fa fa-edit"></i>
+            </md-button>
+            <md-button aria-label="Delete" class="md-fab md-raised md-mini" ng-click="testimonialResource.delete({id: testimonial._id}); state.reload();">
+                <i class="fa fa-trash"></i>
+            </md-button>
+        </md-content>
+    </header>
+    <div layout="row" flex="100">{{testimonial.description}}</div>
+</section>
+
+
+<div style="visibility: hidden">
+        <div class="md-dialog-container" id="addTestimonial">
+            <md-dialog flex="75">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Add Testimonial</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content layout-padding>
+                    <form name="addTestimonial" ng-submit="submitTestimonial()">
+                        <md-input-container class="md-block">
+                            <label>Author</label>
+                            <input name="author" required ng-model="newTestimonial.author">
+                            <div ng-messages="addTestimonial.author.$error" >
+                                <div ng-message="required">
+                                    You must enter an authors name.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Testimonial</label>
+                            <textarea md-select-on-focus required name="testimonial" ng-model="newTestimonial.description"></textarea>
+                            <div ng-messages="addTestimonial.testimonial.$error" >
+                                <div ng-message="required">
+                                    You must enter a testimonial.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" layout-align="center">
+                            <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Create</md-button>
+                        </md-input-container>
+                    </form>
+                </md-dialog-content>
+            </md-dialog>
+        </div>
+    </div>
+
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="editTestimonial">
+        <md-dialog flex="75">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Edit Testimonial</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-dialog-content layout-padding>
+                <form name="editableTestimonial" ng-submit="updateEditedTestimonial()">
+                    <md-input-container class="md-block">
+                        <label>Author</label>
+                        <input name="author" required ng-model="editedTestimonial.author">
+                        <div ng-messages="editableTestimonial.author.$error" >
+                            <div ng-message="required">
+                                You must enter an author name.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Testimonial</label>
+                        <textarea name="testimonial" required md-select-on-focus ng-model="editedTestimonial.description"></textarea>
+                        <div ng-messages="editableTestimonial.testimonial.$error" >
+                            <div ng-message="required">
+                                You must enter a testimonial.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" layout-align="center">
+                        <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Update</md-button><md-button type="submit">Update</md-button>
+                    </md-input-container>
+                </form>
+            </md-dialog-content>
+        </md-dialog>
+    </div>
+</div>

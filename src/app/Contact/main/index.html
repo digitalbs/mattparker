@@ -1,0 +1,43 @@
+<div layout="row" layout-align="center">
+    <h1 class="headline">CONTACT</h1>
+</div>
+
+<div layout="row" layout-align="center">
+    <md-content layout-padding flex-sm="100" flex-md="100" flex-lg="75" flex-xl="75">
+           <form name="contactForm">
+            <md-input-container layout-padding class="md-block" flex=100 layout="row">
+                <label>Name</label>
+                <input required ng-model="contact.name" name="contactName">
+                <div ng-messages="contactForm.contactName.$error">
+                    <div ng-message="required">Name is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container layout-padding class="md-block" flex=100  layout="row">
+                <label>Email</label>
+                <input required type="email" name="contactEmail" ng-model="contact.email" ng-pattern="/^.+@.+\..+$/" />
+                <div ng-messages="contactForm.contactEmail.$error">
+                    <div ng-message="required">Email is required.</div>
+                    <div ng-message="pattern">Email is not valid</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container layout-padding class="md-block" layout="row" class="md-block" flex="100">
+                <label>Message</label>
+                <textarea md-select-on-focus ng-model="contact.message"></textarea>
+            </md-input-container>
+
+            <md-content flex="100" layout="row" layout-padding layout-align="center">
+                <div vc-recaptcha key="captchaKey"></div>
+            </md-content>
+
+            <div ng-messages="contactForm.$error" ng-if="contactForm.$submitted" layout="row" layout-align="center">
+                <div ng-message="recaptcha" style="color: red;">You must check the captcha</div>
+            </div>
+            <div layout="row" class="md-block" flex="100" layout-align="center">
+                <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+</div>
+

@@ -1,0 +1,17 @@
+<div layout="row" layout-align="center">
+    <img src="farmhouse-exterior.jpg">
+</div>
+
+<h2 class="subheader">Latest on Instagram</h2>
+
+<ui-carousel
+    slides="feedList.data"
+    slides-to-show="3"
+    slides-to-scroll="1"
+    initial-slide="1">
+    <carousel-item flex="30">
+        <a href="{{item.link}}" target="_blank">
+            <img ng-src="{{item.images.low_resolution.url}}">
+        </a>
+    </carousel-item>
+</ui-carousel>

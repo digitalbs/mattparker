@@ -1,0 +1,102 @@
+@import "base/_base";
+@import "vendors/_vendors";
+@import "module/_modules";
+
+.matt-parker-topnav {
+    .logo {
+        background: url('../assets/img/mparker_logo.png') no-repeat;
+        background-size: contain;
+        text-indent: -3000em;
+    }
+}
+
+.subheader {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    margin: 2em 0 1em 0;
+    font-weight: normal;
+}
+
+.headline {
+    font-weight: normal;
+    font-size: 2.3em;
+}
+
+.testimonial {
+    margin: 2em 0;
+}
+
+.project {
+    text-align: center;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+    }
+}
+
+.project-back-btn {
+    font-size: 1.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 1em;
+    i {
+        margin-right: 0.4em;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.admin-project {
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 1em;
+}
+
+.project-gallery-preview {
+    width: 100%;
+}
+
+.thumbnails {
+    margin-top: 1em;
+
+    img {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+
+        &.active {
+            border: 3px solid #f26d5a;
+            outline: none;
+        }
+    }
+}
+
+.btn-remove-image {
+    float: left;
+    cursor: pointer;
+}
+
+.social-media-icons {
+    a:hover {
+        color: #f26d5a;
+    }
+}
+
+.admin-links {
+    a {
+        cursor: pointer;
+        &:hover {
+            color: #f26d5a;
+            text-decoration: underline;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.6em;
+}

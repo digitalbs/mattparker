@@ -1,0 +1,25 @@
+<header layout="row" layout-align="end" flex="100" class="admin-links">
+    <a ui-sref="adminLogin" ng-if="!$root.isAuthenticated"><i class="fa fa-user"></i> LOGIN</a>
+    <a ng-click="signout()" ng-if="$root.isAuthenticated"><i class="fa fa-user"></i> LOGOUT</a>
+</header>
+
+<div layout="row" layout-align="center" layout-padding>
+    <h1 class="headline">WHAT DO YOU WANT TO EDIT?</h1>
+</div>
+
+<div layout="row" layout-xs="column">
+    <md-nav-bar
+        md-no-ink-bar="disableInkBar"
+        nav-bar-aria-label="navigation links"
+        md-selected-nav-item="currentNavItem">
+        <md-nav-item md-nav-sref="admin.projects" name="Projects">
+          Projects
+        </md-nav-item>
+        <md-nav-item md-nav-sref="admin.testimonials" name="Testimonials">
+        Testimonials
+        </md-nav-item>
+    </md-nav-bar>
+</div>
+
+<div class="row" ui-view="admin"></div>
+

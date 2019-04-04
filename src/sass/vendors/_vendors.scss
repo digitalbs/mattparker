@@ -1,0 +1,42 @@
+@import "~angular-ui-carousel/dist/ui-carousel.css";
+@import "~angular-material/angular-material.scss";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide {
+    display: none !important;
+}
+
+ng\:form {
+    display: block;
+}
+
+.ui-carousel {
+    text-align: center;
+}
+
+.carousel-item img {
+    height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-item img {
+        height: 150px;
+    }
+}
+.ui-icon-next, .ui-icon-prev {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.ui-icon-prev:before {
+    font-family:'FontAwesome';
+    content: '\f0d9';
+    display: inline-block;
+}
+
+.ui-icon-next:before {
+    font-family:'FontAwesome';
+    content: '\f0da';
+    display: inline-block;
+}

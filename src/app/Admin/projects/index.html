@@ -1,0 +1,148 @@
+<header layout-padding layout-align="space-between" layout="row" flex="100">
+        <h1>Projects<h1>
+
+        <md-button class="md-accent md-raised md-button md-ink-ripple" ng-click="createProject();">
+            <i class="fa fa-plus"></i> Add Project
+        </md-button>
+    </header>
+<section ng-repeat="project in projects" layout-padding>
+    <header style="overflow: hidden" layout="row" layout-align="space-between">
+        <h3>{{project.name}}</h3>
+        <md-content>
+            <md-button aria-label="Edit" class="md-fab md-raised md-mini" ng-click="modifyProject(project);">
+                <i class="fa fa-edit"></i>
+            </md-button>
+            <md-button aria-label="Delete" class="md-fab md-raised md-mini" ng-click="removeProject(project); ">
+                <i class="fa fa-trash"></i>
+            </md-button>
+        </md-content>
+    </header>
+    <md-content layout="row" layout-padding class="admin-project">
+        <span layout="column" flex="30">
+            <img class="project-gallery-preview" src="{{project.gallery.preview}}" />
+        </span>
+        <div layout="column" flex="70">{{project.description}}</div>
+    </md-content>
+</section>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="addProject">
+        <md-dialog flex="75">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Add Project</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-dialog-content layout-padding>
+                <form name="addProject" ng-submit="submitProject()">
+                    <md-input-container class="md-block" layout-padding>
+                        <label>Project Name</label>
+                        <input ng-model="newProject.name" name="name" required>
+                        <div ng-messages="addProject.name.$error" >
+                            <div ng-message="required">
+                                You must enter a project name.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" layout-padding>
+                        <label>Project Description</label>
+                        <textarea required md-select-on-focus ng-model="newProject.description" name="description"></textarea>
+                        <div ng-messages="addProject.description.$error" >
+                            <div ng-message="required">
+                                You must enter a project description.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-content layout-padding>
+                            <h3>Setup Gallery</h3>
+                            <md-input container class="md-block">
+                                <label>Images</label>
+                                <input type="file" id="galleryImageUploader" multiple/>
+                            </md-input>
+                            <div class="gallery-admin-preview">
+                                <p ng-if="!newProject.gallery.images">No files currently selected for upload</p>
+                                <p ng-if="newProject.gallery.images.length > 0">Select Image to set as preview image on gallery list</p>
+                                <ul>
+                                    <li ng-if="newProject.gallery.images" ng-repeat="image in newProject.gallery.images" flex="25">
+                                            <a class="btn-remove-image md-accent" ng-click="newProject.gallery.images.splice($index, 1);">REMOVE</a>
+
+                                        <img ng-click="newProject.gallery.preview=image.url" ng-class="{'default': newProject.gallery.preview === image.url}" ng-src="{{image.url}}" alt="{{image.title}}"/>
+                                        <p><span>{{image.text}}</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                    </md-content>
+
+                    <md-input-container class="md-block" layout-align="center">
+                        <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Create</md-button>
+                    </md-input-container>
+                </form>
+            </md-dialog-content>
+        </md-dialog>
+    </div>
+</div>
+
+<div style="visibility: hidden">
+        <div class="md-dialog-container" id="editProject">
+            <md-dialog flex="75">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Edit Project</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content layout-padding>
+                    <form name="editProject" ng-submit="updateProject()">
+                        <md-input-container class="md-block" layout-padding>
+                            <label>Project Name</label>
+                            <input ng-model="editableProject.name" name="name" required>
+                            <div ng-messages="editProject.name.$error" >
+                                <div ng-message="required">
+                                    You must enter a project name.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" layout-padding>
+                            <label>Project Description</label>
+                            <textarea required md-select-on-focus ng-model="editableProject.description" name="description"></textarea>
+                            <div ng-messages="editProject.description.$error" >
+                                <div ng-message="required">
+                                    You must enter a project description.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-content layout-padding>
+                                <h3>Edit Gallery</h3>
+                                <md-input container class="md-block">
+                                    <label>Images</label>
+                                    <input type="file" id="galleryImageUploaderEdit" multiple/>
+                                </md-input>
+                                <div class="gallery-admin-preview">
+                                    <p ng-if="!editableProject.gallery.images">No files currently selected for upload</p>
+                                    <p ng-if="editableProject.gallery.images.length > 0">Select Image to set as preview image on gallery list</p>
+                                    <ul>
+                                        <li ng-if="editableProject.gallery.images" ng-repeat="image in editableProject.gallery.images" flex="25">
+                                            <a class="btn-remove-image  md-accent" ng-click="editableProject.gallery.images.splice($index, 1);">REMOVE</a>
+
+                                            <img ng-click="editableProject.gallery.preview=image.url" ng-class="{'default': editableProject.gallery.preview === image.url}" ng-src="{{image.url}}" alt="{{image.title}}"/>
+                                            <p><span>{{image.text}}</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </md-content>
+
+                        <md-input-container class="md-block" layout-align="center">
+                            <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Update</md-button>
+                        </md-input-container>
+                    </form>
+                </md-dialog-content>
+            </md-dialog>
+        </div>
+    </div>

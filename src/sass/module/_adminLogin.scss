@@ -1,0 +1,26 @@
+.form {
+    input {
+        margin: 0.2em;
+        height: 1em;
+
+    }
+}
+
+.gallery-admin-preview {
+    li {
+        width: 17%;
+        list-style: none;
+        display: inline-block;
+        text-align: center;
+        padding: 0 1%;
+    }
+    img {
+        width: 100%;
+
+        &.default {
+            outline: none;
+            border: 3px solid #f26d5a;
+        }
+    }
+
+}

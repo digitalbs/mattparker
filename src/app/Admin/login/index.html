@@ -1,0 +1,37 @@
+<div layout="row" layout-align="center">
+    <h1 class="headline">LOGIN TO ADMINISTER SITE</h1>
+</div>
+
+<div layout="row" layout-align="center">
+    <md-content layout-padding flex-sm="100" flex-md="100" flex-lg="75" flex-xl="75">
+        <form name="adminLoginForm" ng-submit="adminAuthorize()">
+            <div ng-messages="adminLoginForm.$error">
+                <div ng-message="serverError" style="color: red;">{{loginForm.error.data.message}}</div>
+            </div>
+
+            <md-input-container class="md-block" layout="row" flex="100">
+                <label>Username</label>
+                <input required name="username" ng-model="loginForm.username" />
+                <div ng-messages="adminLoginForm.username.$error" >
+                    <div ng-message="required">
+                        You must enter a username.
+                    </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" layout="row" flex="100">
+                <label>Password</label>
+                <input required name="password" ng-model="loginForm.password" type="password" />
+                <div ng-messages="adminLoginForm.password.$error" >
+                    <div ng-message="required">
+                        You must enter a password.
+                    </div>
+                </div>
+            </md-input-container>
+            <div layout="row" class="md-block" flex="100" layout-align="center">
+                <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+</div>
+

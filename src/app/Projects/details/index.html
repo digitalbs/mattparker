@@ -1,0 +1,19 @@
+<button class="project-back-btn md-primary md-button md-ink-ripple" ui-sref="projects.landing"><i class="fa fa-arrow-left"></i> Back</button>
+
+<div layout="row" layout-align="center">
+    <h1 class="headline">{{project.name}}</h1>
+</div>
+
+<section layout-sm="column" layout-md="column" layout-lg="row" layout-xl="row" class="md-block">
+    <div layout-sm="row" layout-md="row" layout-lg="column" layout-xl="column" layout-padding flex-sm="100" flex-md="100" flex-lg="50" flex-xl="50">
+        <section layout="column">
+            <img flex="100" class="md-block" src="{{currentImage}}" alt="{{currentImage.title}}" layout="row" />
+            <div class="thumbnails md-block" layout="row" flex="100">
+                <img flex="25" layout="column" layout-padding ng-repeat="image in project.gallery.images" src="{{image.url}}" ng-click="activeImage()" ng-class="{'active': isActiveImage()}" alt="{{image.title}}" />
+            </div>
+        </section>
+    </div>
+
+    <p layout-sm="row" layout-md="row" layout-lg="column" layout-xl="column" layout-padding  flex-sm="100" flex-md="100" flex-lg="50" flex-xl="50">{{project.description}}</p>
+</section>
+
