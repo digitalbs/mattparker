@@ -5,8 +5,6 @@ class MainCtrl {
         this.$scope = $scope;
         this.$resource = $resource;
 
-        // let testimonialResource = $resource('http://localhost:3000/api/testimonials');
-        // this.$scope.testimonials = testimonialResource.query();
         $scope.currentNavItem= 'Projects';
         $state.go('admin.projects');
 

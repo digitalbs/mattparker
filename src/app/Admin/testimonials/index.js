@@ -7,7 +7,7 @@ class TestimonialsCtrl {
         $scope.state = $state;
 
         //fling toolbar
-        $scope.testimonialResource = $resource('http://localhost:3000/api/testimonials/:id', {id:'@id'}, {
+        $scope.testimonialResource = $resource('http://127.0.0.1:3000/api/testimonials/:id', {id:'@id'}, {
             update: {
                 method: 'PUT'
             }

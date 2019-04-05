@@ -16,7 +16,7 @@ class ProjectsCtrl {
         $scope.selectedMode = 'md-fling';
         $scope.isOpen = false;
 
-        $scope.projectResource = $resource('http://localhost:3000/api/project/:id', {id:'@id'}, {
+        $scope.projectResource = $resource('http://127.0.0.1:3000/api/project/:id', {id:'@id'}, {
             update: {
                 method: 'PUT'
             }

@@ -5,7 +5,7 @@ class MainCtrl {
         this.$scope = $scope;
         this.$resource = $resource;
 
-        let testimonialResource = $resource('http://localhost:3000/api/testimonials');
+        let testimonialResource = $resource('http://127.0.0.1:3000/api/testimonials');
         this.$scope.testimonials = testimonialResource.query();
 
     }

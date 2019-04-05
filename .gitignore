@@ -16,7 +16,6 @@ docs
 exports/jasmine
 exports/templates
 node_modules
-build
 release
 coverage
 distribute

@@ -2,7 +2,7 @@ import template from './index.html';
 
 class AdminLoginCtrl {
     constructor($scope, $resource, $state) {
-        this.authenticate = $resource('http://localhost:3000/api/users/authenticate');
+        this.authenticate = $resource('http://127.0.0.1:3000/api/users/authenticate');
 
         this.$scope = $scope;
         this.$resource = $resource;

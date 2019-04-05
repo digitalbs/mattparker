@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="/">
+    <link href="//fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.3/css/solid.css" integrity="sha384-+0VIRx+yz1WBcCTXBkVQYIBVNEFH1eP6Zknm16roZCyeNg2maWEpk/l/KsyFKs7G" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.3/css/fontawesome.css" integrity="sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0" crossorigin="anonymous">
+
+    <title>Matt Parker Design</title>
+<link href="theme-aa91af.css?aa91af8c48a8658a5258" rel="stylesheet"></head>
+
+<body ng-cloak>
+    <header class="matt-parker-topnav" layout="row" layout-padding>
+        <a class="logo" flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20" ui-sref="app">Matt Parker Design</a>
+        <div flex-xs="70" flex-sm="70" flex-md="70" flex-lg="70" flex-xl="70">
+            <div layout="column">
+                <ul layout="row" layout-align="center">
+                    <li flex-xs="30" flex-sm="30" flex-md="30" flex-lg="30" flex-xl="20"><a ui-sref="about" ui-sref-active="active">About</a></li>
+                    <li flex-xs="30" flex-sm="30" flex-md="30" flex-lg="30" flex-xl="20"><a ui-sref="projects.landing" ui-sref-active="{'active': 'projects.**'}">Projects</a></li>
+                    <li flex-xs="30" flex-sm="30" flex-md="30" flex-lg="30" flex-xl="20"><a ui-sref="contact" ui-sref-active="active">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20">
+            <div layout="column">
+                <ul class="social-media-icons" layout="row" layout-align="end">
+                    <li flex-xs="50" flex-sm="50" flex-md="50" flex-lg="30" flex-xl="30">follow: </li>
+                    <li flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="10"><i class="fab fa-facebook"></i></li>
+                    <li flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="10"><a href="https://www.instagram.com/mparkerdesign/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="10"><a href="https://www.houzz.com/pro/mparkerdesign/m-parker-design" target="_blank"><i class="fab fa-houzz"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section layout="row" class="main-content">
+        <div flex-xs="10" flex-sm="10" flex-md="10" flex-lg="10" flex-xl="10"></div>
+        <div flex-xs="80" flex-sm="80" flex-md="80" flex-lg="80" flex-xl="80" ui-view="perspective"></div>
+        <div flex-xs="10" flex-sm="10" flex-md="10" flex-lg="10" flex-xl="10"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2019 Matt Parker Design</p>
+    </footer>
+<script type="text/javascript" src="bundle-aa91af.js?aa91af8c48a8658a5258"></script></body>
+</html>

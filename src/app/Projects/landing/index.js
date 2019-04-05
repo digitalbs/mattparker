@@ -4,7 +4,7 @@ class MainCtrl {
     constructor($scope, $resource) {
         this.$scope = $scope;
 
-        $scope.projectResource = $resource('http://localhost:3000/api/project/:id', {id:'@id'}, {
+        $scope.projectResource = $resource('http://127.0.0.1:3000/api/project/:id', {id:'@id'}, {
             update: {
                 method: 'PUT'
             }
